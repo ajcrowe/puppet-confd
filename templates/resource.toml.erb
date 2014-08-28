@@ -1,0 +1,26 @@
+[template]
+src   = <%= @src %>
+dest  = <%= @dest %>
+keys  = [
+<% @keys.each do |key| -%>
+  "<%= key %>",
+<% end -%>
+]
+<% if @owner -%>
+owner = <%= @owner %>
+<% end -%>
+<% if @group -%>
+owner = <%= @group %>
+<% end -%>
+<% if @mode -%>
+owner = <%= @mode %>
+<% end -%>
+<% if @reload_cmd -%>
+owner = <%= @reload_cmd %>
+<% end -%>
+<% if @check_cmd -%>
+owner = <%= @check_cmd %>
+<% end -%>
+<% if @prefix -%>
+owner = <%= @prefix %>
+<% end -%>

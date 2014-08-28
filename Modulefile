@@ -1,0 +1,11 @@
+name    'ajcrowe-confd'
+version '0.0.1'
+source 'git@github.com/ajcrowe/puppet-confd.git'
+author 'Alex Crowe'
+license 'Apache License, Version 2.0'
+summary 'confd class and functions'
+description 'confd class and functions'
+project_page 'https://github.com/ajcrowe/puppet-confd'
+
+dependency 'puppetlabs/concat', '>= 1.0.0 <2.0.0'
+dependency 'puppetlabs/stdlib', '>= 4.1.0'

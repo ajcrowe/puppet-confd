@@ -1,0 +1,7 @@
+.*.sw?
+pkg
+spec/fixtures
+.rspec_system
+.ruby-version
+.ruby-gemset
+Gemfile.lock
