@@ -7,6 +7,7 @@ class confd::install {
 
   file { "${confd::installdir}/confd":
     ensure => present,
+    links  => follow,
     owner  => 'root',
     mode   => '0755',
     source => $binarysrc

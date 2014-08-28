@@ -1,32 +1,31 @@
 [confd]
-confdir = <%= @confdir %>
+confdir = "<%= @confdir %>"
 <% if @prefix -%>
-prefix = <%= @prefix %>
+prefix = "<%= @prefix %>"
 <% end -%>
 <% if @interval -%>
 interval = <%= @interval %>
 <% end -%>
-<% if @debug != 'nil' -%>
+<% if @debug != nil -%>
 debug = <%= @debug %>
 <% end -%>
-<% if @confdnoop != 'nil' -%>
+<% if @confdnoop != nil -%>
 noop = <%= @confdnoop %>
 <% end -%>
-<% if @quiet != 'nil' -%>
+<% if @quiet != nil -%>
 quiet = <%= @quiet %>
 <% end -%>
 <% if @srv_domain -%>
-srv_domain = <%= @srv_domain %>
+srv_domain = "<%= @srv_domain %>"
 <% end -%>
-<% if @verbose != 'nil' -%>
+<% if @verbose != nil -%>
 verbose = <%= @verbose %>
 <% end -%>
-
-<% if @consul != 'nil' -%>
+<% if @consul != nil -%>
 consul = <%= @consul %>
 <% end -%>
 <% if @consul_addr -%>
-prefix = <%= @consul_addr %>
+prefix = "<%= @consul_addr %>"
 <% end -%>
 <% if @etcd_nodes -%>
 etcd_nodes = [
@@ -36,12 +35,11 @@ etcd_nodes = [
 ]
 <% end -%>
 <% if @etcd_scheme -%>
-etcd_scheme = <%= @etcd_scheme %>
+etcd_scheme = "<%= @etcd_scheme %>"
 <% end -%>
-
 <% if @client_cert -%>
-client_cert = <%= @client_cert_path %>
+client_cert = "<%= @client_cert_path %>"
 <% end -%>
 <% if @client_key -%>
-client_cert = <%= @client_key_path %>
+client_cert = "<%= @client_key_path %>"
 <% end -%>
