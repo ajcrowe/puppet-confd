@@ -5,7 +5,7 @@
 #
 class confd::params {
   $confdir = '/etc/confd'
-  $version = 'v0.5.0'
+  $version = 'latest'
   $user = 'root'
   $sitemodule = 'site_confd'
 
