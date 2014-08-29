@@ -5,8 +5,8 @@
 
 1. [Overview](#overview)
 2. [Setup](#setup)
-    * [The confd class](#the-confd-resource-define)
-    * [The confd::resource define](#the-confd-resource-define)
+    * [The confd class](#the-confd-class)
+    * [The confd resource define](#the-confd-resource-define)
     * [Beginning with confd](#beginning-with-confd)
 3. [Examples](#examples)
 4. [Development](#development)
@@ -117,7 +117,7 @@ confd::resource { 'nginx_upstream_01':
 
 ###Hiera resource lookup
 
-You can also define your resources in hiera under the name `confd::resources` and these will automatically be created when including the confd class.
+You can also define your resources in hiera under the name `confd::resources` and these will automatically be created when including the `confd` class.
 
 ## Development
 
