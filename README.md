@@ -5,8 +5,8 @@
 
 1. [Overview](#overview)
 2. [Setup](#setup)
-    * [The ::confd class](#the-::confd::resource-define)
-    * [The ::confd::resource define](#the-::confd::resource-define)
+    * [The confd class](#the-confd-resource-define)
+    * [The confd::resource define](#the-confd-resource-define)
     * [Beginning with confd](#beginning-with-confd)
 3. [Examples](#examples)
 4. [Development](#development)
@@ -48,7 +48,7 @@ include confd
 
 This will copy the confd binary and create all the directory structure
 
-###The ::confd class
+###The confd class
 
 ####Parameters
 
@@ -82,7 +82,7 @@ Specifies where all the configuration for confd will live
 
 All other parameters are directly mapped to the configuration in `confd.toml please see the [documentation](https://github.com/kelseyhightower/confd/blob/master/docs/configuration-guide.md) for full details.
 
-###The ::confd::resource define
+###The confd::resource define
 
 ####Parameters
 
