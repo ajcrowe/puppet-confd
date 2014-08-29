@@ -18,14 +18,14 @@ class confd::config inherits confd {
   file { "${confd::confdir}/templates":
     ensure  => directory,
     owner   => 'root',
-    mode    => '0750',
+    mode    => '0640',
     recurse => true,
     source  => "puppet:///modules/${confd::sitemodule}/templates"
   } ->
   file { "${confd::confdir}/ssl":
     ensure  => directory,
     owner   => 'root',
-    mode    => '0750',
+    mode    => '0640',
     recurse => true,
     source  => "puppet:///modules/${confd::sitemodule}/ssl"
   }
@@ -34,7 +34,7 @@ class confd::config inherits confd {
   file { "${confd::confdir}/confd.toml":
     ensure  => present,
     owner   => 'root',
-    mode    => '0755',
+    mode    => '0644',
     content => template('confd/confd.toml.erb')
   }
 }

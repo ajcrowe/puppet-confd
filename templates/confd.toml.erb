@@ -29,8 +29,8 @@ prefix = "<%= @consul_addr %>"
 <% end -%>
 <% if @etcd_nodes -%>
 etcd_nodes = [
-<% etcd_nodes.each do |node| -%>
-  "<%= @node %>",
+<% @etcd_nodes.each do |node| -%>
+  "<%= node %>",
 <% end -%>
 ]
 <% end -%>

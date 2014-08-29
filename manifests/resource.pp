@@ -15,7 +15,7 @@ define confd::resource(
   $check_cmd  = undef,
   $prefix     = undef
 ) {
-
+  include ::confd
   # validate required params
   validate_absolute_path($dest)
   validate_array($keys)

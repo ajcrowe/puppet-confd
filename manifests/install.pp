@@ -9,7 +9,7 @@ class confd::install {
     ensure => present,
     links  => follow,
     owner  => 'root',
-    mode   => '0755',
+    mode   => '0750',
     source => $binarysrc
   }
 }

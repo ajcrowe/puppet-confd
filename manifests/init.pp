@@ -1,13 +1,8 @@
 # == Class: confd
 #
-# Full description of class confd here.
+# Class to install and configure all the options for confd.toml
 #
-# === Parameters
-#
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#
-class confd (
+class confd(
   $version     = $confd::params::version,
   $installdir  = $confd::params::installdir,
   $sitemodule  = $confd::params::sitemodule,

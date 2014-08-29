@@ -1,26 +1,26 @@
 [template]
-src   = <%= @src %>
-dest  = <%= @dest %>
-keys  = [
+src    = "<%= @src %>"
+dest   = "<%= @dest %>"
+<% if @owner -%>
+owner  = "<%= @owner %>"
+<% end -%>
+<% if @group -%>
+group  = "<%= @group %>"
+<% end -%>
+<% if @mode -%>
+mode   = "<%= @mode %>"
+<% end -%>
+keys   = [
 <% @keys.each do |key| -%>
   "<%= key %>",
 <% end -%>
 ]
-<% if @owner -%>
-owner = <%= @owner %>
-<% end -%>
-<% if @group -%>
-owner = <%= @group %>
-<% end -%>
-<% if @mode -%>
-owner = <%= @mode %>
+<% if @prefix -%>
+prefix = "<%= @prefix %>"
 <% end -%>
 <% if @reload_cmd -%>
-owner = <%= @reload_cmd %>
+reload_cmd = "<%= @reload_cmd %>"
 <% end -%>
 <% if @check_cmd -%>
-owner = <%= @check_cmd %>
-<% end -%>
-<% if @prefix -%>
-owner = <%= @prefix %>
+check_cmd  = "<%= @check_cmd %>"
 <% end -%>
