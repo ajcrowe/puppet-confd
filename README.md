@@ -38,7 +38,9 @@ site_confd
         └── ...
 ```
 
-You'll need to download the confd [binary](https://github.com/kelseyhightower/confd/releases) of you choice and ensure it matches `confd-$version`, the default value for version is latest. This allows you to run multiple versions of confd should you wish, can you symlink the default to `confd-latest`. You can also customise the name of site module by setting the `confd::sitemodule` param.
+You'll need to download the confd [binary](https://github.com/kelseyhightower/confd/releases) of you choice and ensure it matches `confd-$version`, the default value for version is latest. This allows you to run multiple versions of confd should you wish, can you symlink the default to `confd-latest`. 
+
+You can also customise the name of site module by setting the `confd::sitemodule` param.
 
 To setup confd with all defaults you can simply include the class 
 
@@ -80,7 +82,7 @@ Specifies where all the configuration for confd will live
 
 ##### Other Parameters
 
-All other parameters are directly mapped to the configuration in `confd.toml please see the [documentation](https://github.com/kelseyhightower/confd/blob/master/docs/configuration-guide.md) for full details.
+All other parameters are directly mapped to the configuration in `confd.toml` please see the [documentation](https://github.com/kelseyhightower/confd/blob/master/docs/configuration-guide.md) for full details.
 
 ###The confd::resource define
 
@@ -111,7 +113,11 @@ confd::resource { 'nginx_upstream_01':
 }
 ```
 
-The `src` in the resource will be looking for a template in `/etc/confd/templates/nginx_upstream.tmpl`
+* Note: The `src` value in the resource will be looking for a template in `/etc/confd/templates/nginx_upstream.tmpl` so this will need to exist in the sites module.
+
+###Hiera resource lookup
+
+You can also define your resources in hiera under the name `confd::resources` and these will automatically be created when including the confd class.
 
 ## Development
 
