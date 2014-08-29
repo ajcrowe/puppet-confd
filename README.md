@@ -84,7 +84,7 @@ Specifies where all the configuration for confd will live
 
 All other parameters are directly mapped to the configuration in `confd.toml` please see the [documentation](https://github.com/kelseyhightower/confd/blob/master/docs/configuration-guide.md) for full details.
 
-###The confd::resource define
+###The confd resource define
 
 ####Parameters
 
