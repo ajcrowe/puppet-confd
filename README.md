@@ -113,11 +113,11 @@ confd::resource { 'nginx_upstream_01':
 }
 ```
 
-* Note: The `src` value in the resource will be looking for a template in `/etc/confd/templates/nginx_upstream.tmpl` so this will need to exist in the sites module.
+* Note: The `src` value in the resource will be looking for a template in `/etc/confd/templates/nginx_upstream.tmpl` so this will need to exist in the sites module under `files/templates/nginx_upstream.tmpl
 
 ###Hiera resource lookup
 
-You can also define your resources in hiera under the name `confd::resources` and these will automatically be created when including the `confd` class.
+You can also define your resources in hiera under the variable `confd::resources` and these will automatically be created when the `confd` class is instantiated.
 
 ## Development
 
