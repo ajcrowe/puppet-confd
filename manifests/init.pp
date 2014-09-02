@@ -59,6 +59,5 @@ class confd(
 
   class { 'confd::install': } ->
   class { 'confd::config': } ~>
-  class { 'confd::service': } ->
   Class['confd']
 }

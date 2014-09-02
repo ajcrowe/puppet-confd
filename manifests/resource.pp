@@ -36,6 +36,5 @@ define confd::resource(
     owner   => 'root',
     mode    => '0750',
     content => template('confd/resource.toml.erb'),
-    notify  => Class['confd::service']
   }
 }
