@@ -40,7 +40,7 @@ class confd(
   if $consul_addr { validate_string($consul_addr) }
   if $etcd_nodes { validate_array($etcd_nodes) }
   if $etcd_scheme { validate_re($etcd_scheme, '^https?$') }
-  if $interval { validate_re($interval, '^\d+$') }
+  if $interval { validate_re($interval, '^\d+') }
   if $confdnoop { validate_bool($confdnoop) }
   if $prefix { validate_string($prefix) }
   if $quiet { validate_bool($quiet) }
