@@ -109,7 +109,7 @@ confd::resource { 'nginx_upstream_01':
   owner      => 'root',
   mode       => 0644,
   check_cmd  => '/usr/sbin/nginx -t',
-  reload_cmd => '/usr/sbin/nginx -s reload'  
+  reload_cmd => '/usr/sbin/nginx -s reload'
 }
 ```
 

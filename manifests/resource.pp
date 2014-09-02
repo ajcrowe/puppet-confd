@@ -4,10 +4,12 @@
 # confd will populate the template with the given data
 #
 define confd::resource(
-  $src,
+  # required
   $dest,
   $keys,
   $ensure     = present,
+  $src        = "${name}.tmpl",
+  # optional
   $group      = undef,
   $mode       = undef,
   $owner      = undef,
