@@ -1,5 +1,5 @@
 name    'ajcrowe-confd'
-version '0.0.9'
+version '0.1.0'
 source 'git@github.com/ajcrowe/puppet-confd.git'
 author 'Alex Crowe'
 license 'Apache License, Version 2.0'
