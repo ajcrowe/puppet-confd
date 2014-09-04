@@ -48,7 +48,7 @@ To setup confd with all defaults you can simply include the class
 include confd
 ```
 
-This will copy the confd binary and create all the directory structure
+This will copy the `confd` binary and create all required the directory structure and sync your assets from the site module.
 
 ###The confd class
 
@@ -58,27 +58,27 @@ These params are available to the confd class:
 
 #####`version`
 
-Integer: default to latest
+Integer: defaults to `latest`
 
-This sets the confd binary to be installed from the site module
+Description: This sets the confd binary to be installed from the site module
 
 #####`installdir`
 
-Absolute path: defaults to /usr/local/bin for Debian and /usr/bin for RedHat/Amazon
+Absolute path: defaults to `/usr/local/bin` for Debian and `/usr/bin` for RedHat/Amazon
 
-This set where the confd binary will be stored
+Description: This set where the confd binary will be stored
 
 #####`sitemodule`
 
-String: defaults to site_confd 
+String: defaults to `site_confd`
 
-Specifies the name of the site module for templates, ssl certs and binaries
+Description: Specifies the name of the site module for templates, ssl certs and binaries
 
 #####`confdir`
 
-Absolute path: defaults to /etc/confd/ 
+Absolute path: defaults to `/etc/confd/`
 
-Specifies where all the configuration for confd will live
+Description: Specifies where all the configuration for confd will live
 
 ##### Other Parameters
 
@@ -88,7 +88,7 @@ All other parameters are directly mapped to the configuration in `confd.toml` pl
 
 ####Parameters
 
-Please see the confd [docs](https://github.com/kelseyhightower/confd/blob/master/docs/template-resources.md) for the available parameters, they are mapped directly and have validation checks based on the types.
+Please see the confd [documentation](https://github.com/kelseyhightower/confd/blob/master/docs/template-resources.md) for the available parameters, they are mapped directly and have validation checks based on the types.
 
 ##Examples
 
@@ -113,11 +113,42 @@ confd::resource { 'nginx_upstream_01':
 }
 ```
 
-* Note: The `src` value in the resource will be looking for a template in `/etc/confd/templates/nginx_upstream.tmpl` so this will need to exist in the sites module under `files/templates/nginx_upstream.tmpl
+The `src` value in the resource will be looking for a template in `/etc/confd/templates/nginx_upstream.tmpl` so this will need to exist in the sites module under `files/templates/nginx_upstream.tmpl`
 
 ###Hiera resource lookup
 
 You can also define your resources in hiera under the variable `confd::resources` and these will automatically be created when the `confd` class is instantiated.
+
+####Example JSON hiera:
+
+```json
+"confd::resources": { 
+  "nginx_upstream_01": {
+    "dest": "/etc/nginx/conf.d/upstream_01.conf",
+    "src": "nginx_upstream.tmpl",
+    "keys": [ 
+      "/nginx/upstream/01"
+    ],
+    "group": "root",
+    "owner": "root",
+    "mode": "0644",
+    "check_cmd": "/usr/sbin/nginx -t",
+    "reload_cmd": "/usr/sbin/nginx -s reload"
+  },
+  "nginx_upstream_02": {
+    "dest": "/etc/nginx/conf.d/upstream_02.conf",
+    "src": "nginx_upstream.tmpl",
+    "keys": [ 
+      "/nginx/upstream/02"
+    ],
+    "group": "root",
+    "owner": "root",
+    "mode": "0644",
+    "check_cmd": "/usr/sbin/nginx -t",
+    "reload_cmd": "/usr/sbin/nginx -s reload"
+  }
+}
+```
 
 ## Development
 
