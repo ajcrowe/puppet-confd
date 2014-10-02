@@ -1,5 +1,6 @@
 # Puppet Confd
 
+[![Puppet Forge](http://img.shields.io/puppetforge/v/ajcrowe/supervisord.svg)](https://forge.puppetlabs.com/ajcrowe/supervisord)
 [![Build Status](https://travis-ci.org/ajcrowe/puppet-confd.png?branch=master)](https://travis-ci.org/ajcrowe/puppet-confd)
 
 
