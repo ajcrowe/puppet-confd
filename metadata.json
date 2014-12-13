@@ -1,0 +1,32 @@
+{
+  "name": "ajcrowe-confd",
+  "version": "0.2.0",
+  "author": "Alex Crowe",
+  "license": "MIT",
+  "summary": "confd class and functions",
+  "source": "https://github.com/ajcrowe/puppet-confd",
+  "project_page": "https://forge.puppetlabs.com/ajcrowe/confd",
+  "issues_url": "https://github.com/ajcrowe/puppet-confd/issues",
+  "tags": ["etcd", "consul", "confd", "toml"],
+  "operatingsystem_support": [
+    {
+    "operatingsystem":"RedHat",
+    "operatingsystemrelease":[ "5", "6" ]
+    },
+    {
+    "operatingsystem":"CentOS",
+    "operatingsystemrelease":[ "5", "6" ]
+    },
+    {
+    "operatingsystem": "Ubuntu",
+    "operatingsystemrelease": [ "14.04", "12.04", "10.04" ]
+    },
+    {
+    "operatingsystem": "Debian",
+    "operatingsystemrelease": [ "6", "7" ]
+    }
+   ],
+  "dependencies": [
+    { "name": "puppetlabs/stdlib", "version_requirement": ">= 4.1.0" }
+  ]
+}
