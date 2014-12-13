@@ -8,18 +8,16 @@ class confd(
   $sitemodule  = $confd::params::sitemodule,
 
   $confdir     = $confd::params::confdir,
+  $nodes       = $confd::params::nodes,
   $backend     = undef,
   $debug       = undef,
   $client_cert = undef,
   $client_key  = undef,
-  $consul      = undef,
-  $consul_addr = undef,
-  $etcd_nodes  = undef,
-  $etcd_scheme = undef,
   $interval    = undef,
   $confdnoop   = undef,
   $prefix      = undef,
   $quiet       = undef,
+  $scheme      = undef,
   $srv_domain  = undef,
   $verbose     = undef,
 
@@ -36,14 +34,12 @@ class confd(
 
   if $backend { validate_re($backend, ['^etcd$', '^consul$']) }
   if $debug { validate_bool($debug) }
-  if $consul { validate_bool($consul) }
-  if $consul_addr { validate_string($consul_addr) }
-  if $etcd_nodes { validate_array($etcd_nodes) }
-  if $etcd_scheme { validate_re($etcd_scheme, '^https?$') }
   if $interval { validate_re($interval, '^\d+') }
   if $confdnoop { validate_bool($confdnoop) }
+  if $nodes { validate_array($nodes) }
   if $prefix { validate_string($prefix) }
   if $quiet { validate_bool($quiet) }
+  if $scheme { validate_re($scheme, '^https?$') }
   if $srv_domain { validate_string($srv_domain) }
   if $verbose { validate_bool($verbose) }
   if $client_cert {
@@ -58,6 +54,6 @@ class confd(
   create_resources('confd::resource', $resources)
 
   class { 'confd::install': } ->
-  class { 'confd::config': } ~>
-  Class['confd']
+  class { 'confd::config': } ->
+  Confd::Resource <||>
 }

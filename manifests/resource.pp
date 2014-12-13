@@ -35,7 +35,7 @@ define confd::resource(
   file { $resourcefile:
     ensure  => $ensure,
     owner   => 'root',
-    mode    => '0750',
+    mode    => '0640',
     content => template('confd/resource.toml.erb'),
   }
 }
