@@ -1,3 +1,10 @@
+2014-12-13 - v0.2.0
+
+- Updated to work with 0.6/0.7
+- This is backward incompatible with previous confd releases (anything below 0.6).
+- Please continue to use 'v0.1.0' if you're confd is lower than version '0.6'
+
+
 2014-09-03 - v0.1.0
 
 - First working release

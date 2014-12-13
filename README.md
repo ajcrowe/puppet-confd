@@ -97,9 +97,9 @@ Please see the confd [documentation](https://github.com/kelseyhightower/confd/bl
 
 ```ruby
 class { 'confd':
-  etcd_nodes => [ 'http://etcd-1:4001', 'http://etcd-2:4001' ],
-  interval   => 10
-  prefix     => '/confd'
+  nodes    => [ 'etcd-1:4001', 'etcd-2:4001' ],
+  interval => 10
+  prefix   => '/confd'
 }
 
 confd::resource { 'nginx_upstream_01':
