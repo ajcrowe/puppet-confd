@@ -4,21 +4,18 @@
 # It sets variables according to platform
 #
 class confd::params {
-  $confdir = '/etc/confd'
-  $version = 'latest'
-  $user = 'root'
+  $confdir    = '/etc/confd'
+  $version    = 'latest'
+  $user       = 'root'
   $sitemodule = 'site_confd'
+  $nodes      = ['127.0.0.1:4001']
 
   case $::osfamily {
     'Debian': {
-      $package_name = 'confd'
-      $service_name = 'confd'
-      $installdir = '/usr/local/bin'
+      $installdir   = '/usr/local/bin'
     }
     'RedHat', 'Amazon': {
-      $package_name = 'confd'
-      $service_name = 'confd'
-      $installdir = '/usr/bin'
+      $installdir   = '/usr/bin'
     }
     default: {
       fail("${::operatingsystem} not supported")

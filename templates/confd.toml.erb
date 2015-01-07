@@ -21,21 +21,15 @@ srv_domain = "<%= @srv_domain %>"
 <% if @verbose != nil -%>
 verbose = <%= @verbose %>
 <% end -%>
-<% if @consul != nil -%>
-consul = <%= @consul %>
-<% end -%>
-<% if @consul_addr -%>
-prefix = "<%= @consul_addr %>"
-<% end -%>
-<% if @etcd_nodes -%>
-etcd_nodes = [
-<% @etcd_nodes.each do |node| -%>
+<% if @nodes -%>
+nodes = [
+<% @nodes.each do |node| -%>
   "<%= node %>",
 <% end -%>
 ]
 <% end -%>
-<% if @etcd_scheme -%>
-etcd_scheme = "<%= @etcd_scheme %>"
+<% if @scheme -%>
+etcd_scheme = "<%= @scheme %>"
 <% end -%>
 <% if @client_cert -%>
 client_cert = "<%= @client_cert_path %>"
