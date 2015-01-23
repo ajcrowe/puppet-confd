@@ -20,6 +20,9 @@ srv_domain = "<%= @srv_domain %>"
 <% if @verbose != nil -%>
 verbose = <%= @verbose %>
 <% end -%>
+<% if @watch != nil -%>
+watch = <%= @watch %>
+<% end -%>
 <% if @nodes -%>
 nodes = [
 <% @nodes.each do |node| -%>
