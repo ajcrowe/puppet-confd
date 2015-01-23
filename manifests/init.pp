@@ -20,7 +20,7 @@ class confd(
   $scheme      = undef,
   $srv_domain  = undef,
   $verbose     = undef,
-
+  $watch       = undef,
   $resources = {},
 
 ) inherits confd::params {
@@ -42,6 +42,7 @@ class confd(
   if $scheme { validate_re($scheme, '^https?$') }
   if $srv_domain { validate_string($srv_domain) }
   if $verbose { validate_bool($verbose) }
+  if $watch { validate_bool($watch) }
   if $client_cert {
     validate_string($client_cert)
     $client_cert_path = "${confdir}/ssl/${client_cert}"
