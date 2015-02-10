@@ -1,4 +1,3 @@
-[confd]
 confdir = "<%= @confdir %>"
 <% if @prefix -%>
 prefix = "<%= @prefix %>"
@@ -20,6 +19,9 @@ srv_domain = "<%= @srv_domain %>"
 <% end -%>
 <% if @verbose != nil -%>
 verbose = <%= @verbose %>
+<% end -%>
+<% if @watch != nil -%>
+watch = <%= @watch %>
 <% end -%>
 <% if @nodes -%>
 nodes = [
