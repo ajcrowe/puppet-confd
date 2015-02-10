@@ -2,6 +2,9 @@ confdir = "<%= @confdir %>"
 <% if @prefix -%>
 prefix = "<%= @prefix %>"
 <% end -%>
+<% if @backend -%>
+backend = "<%= @backend %>"
+<% end -%>
 <% if @interval -%>
 interval = <%= @interval %>
 <% end -%>
