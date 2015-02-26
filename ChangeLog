@@ -1,3 +1,12 @@
+2015-02-10 - v0.2.1
+
+- Fixed missing 'backend' setting in template
+- Added watch param
+- Removed unneeded '[confd]' header from 'confd.toml'
+
+All these fixes were contributed by @gozer, many thanks
+
+
 2014-12-13 - v0.2.0
 
 - Updated to work with 0.6/0.7
