@@ -1,3 +1,8 @@
+2015-03-20 - v0.2.2
+
+- Bug fix in template for confd.toml for client_key, thanks to @paalmoest for
+the fix
+
 2015-02-10 - v0.2.1
 
 - Fixed missing 'backend' setting in template
