@@ -14,5 +14,8 @@ script
 end script
 
 respawn
-respawn limit 10 10
+respawn limit unlimited
+
+post-stop exec sleep 5
+
 kill timeout 10
