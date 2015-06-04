@@ -8,20 +8,24 @@ backend = "<%= @backend %>"
 <% if @interval -%>
 interval = <%= @interval %>
 <% end -%>
-<% if @debug != nil -%>
-debug = <%= @debug %>
-<% end -%>
 <% if @confdnoop != nil -%>
 noop = <%= @confdnoop %>
+<% end -%>
+<% if @log_level != nil -%>
+log-level = <%= @log_level %>
+<% else -%>
+<% if @debug != nil -%>
+debug = <%= @debug %>
 <% end -%>
 <% if @quiet != nil -%>
 quiet = <%= @quiet %>
 <% end -%>
-<% if @srv_domain -%>
-srv_domain = "<%= @srv_domain %>"
-<% end -%>
 <% if @verbose != nil -%>
 verbose = <%= @verbose %>
+<% end -%>
+<% end -%>
+<% if @srv_domain -%>
+srv_domain = "<%= @srv_domain %>"
 <% end -%>
 <% if @watch != nil -%>
 watch = <%= @watch %>
@@ -35,6 +39,9 @@ nodes = [
 <% end -%>
 <% if @scheme -%>
 etcd_scheme = "<%= @scheme %>"
+<% end -%>
+<% if @client_cakeys -%>
+client_cakeys = "<%= @client_cakeys_path %>"
 <% end -%>
 <% if @client_cert -%>
 client_cert = "<%= @client_cert_path %>"
