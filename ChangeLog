@@ -1,3 +1,9 @@
+2015-06-04 - v0.2.3
+
+- Added new supported backends to regex
+- Added 'log-level' option, if set 'debug', 'verbose' and 'quiet' will omitted from confd.toml	
+- Added missing 'client_cakeys' option to configuration file
+
 2015-03-20 - v0.2.2
 
 - Bug fix in template for confd.toml for client_key, thanks to @paalmoest for
