@@ -37,6 +37,9 @@ class confd::install {
         group  => 'root',
         mode   => '0755',
       }
+      service { 'confd':
+        enable => true,
+      }
     }
 
     default: {
