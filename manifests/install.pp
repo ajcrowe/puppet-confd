@@ -13,18 +13,34 @@ class confd::install {
     source => $binary_src
   }
 
-  # XXX: This is hard-coded upstart stuff
-  file { '/etc/init/confd.conf':
-    mode    => '0444',
-    owner   => 'root',
-    group   => 'root',
-    content => template('confd/confd.upstart.erb'),
-  }
-  file { '/etc/init.d/confd':
-    ensure => link,
-    target => '/lib/init/upstart-job',
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0755',
+  case $::osfamily {
+    'debian': {
+      file { '/etc/init/confd.conf':
+        mode    => '0444',
+        owner   => 'root',
+        group   => 'root',
+        content => template('confd/confd.upstart.erb'),
+      }
+      file { '/etc/init.d/confd':
+        ensure => link,
+        target => '/lib/init/upstart-job',
+        owner  => 'root',
+        group  => 'root',
+        mode   => '0755',
+      }
+    }
+    'redhat': {
+      file { '/etc/init.d/confd':
+        ensure => present,
+        content => template('confd/confd.sysv.erb'),
+        owner  => 'root',
+        group  => 'root',
+        mode   => '0755',
+      }
+    }
+
+    default: {
+      fail("Unsupported OS Family: $::osfamily")
+    }
   }
 }
