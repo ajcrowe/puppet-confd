@@ -61,14 +61,10 @@ start() {
 
 stop() {
         echo -n "Shutting down confd: "
-        # If confd is not acting as a server, exit gracefully
-        if ("${CONSUL}" info 2>/dev/null | grep -q 'server = false' 2>/dev/null) ; then
-            "$CONSUL" leave
-        fi
 
         # If acting as a server, or if leave failed, kill it.
         mkpidfile
-        killproc $KILLPROC_OPT $CONSUL -9
+        killproc $KILLPROC_OPT $CONFD -9
         
         echo
 
