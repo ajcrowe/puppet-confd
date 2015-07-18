@@ -9,6 +9,7 @@ class confd::params {
   $user       = 'root'
   $sitemodule = 'site_confd'
   $nodes      = ['127.0.0.1:4001']
+  $downloadurl = undef
 
   case $::osfamily {
     'Debian': {
