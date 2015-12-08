@@ -81,6 +81,12 @@ Absolute path: defaults to `/etc/confd/`
 
 Description: Specifies where all the configuration for confd will live
 
+#####`downloadurl`
+
+URL: defaults to `undef`.
+
+Description: If set, the confd binary will be downloaded from this url instead of being taken from the sitemodule. Currently requires that the `version` parameter is set to the actual value reported by `confd --version` to ensure we have the required binary in place (the default `latest` value should be changed).
+
 ##### Other Parameters
 
 All other parameters are directly mapped to the configuration in `confd.toml` please see the [documentation](https://github.com/kelseyhightower/confd/blob/master/docs/configuration-guide.md) for full details.

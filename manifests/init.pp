@@ -6,6 +6,7 @@ class confd(
   $version       = $confd::params::version,
   $installdir    = $confd::params::installdir,
   $sitemodule    = $confd::params::sitemodule,
+  $downloadurl   = $confd::params::downloadurl,
 
   $confdir       = $confd::params::confdir,
   $nodes         = $confd::params::nodes,
@@ -34,6 +35,7 @@ class confd(
   validate_absolute_path($confdir)
   validate_hash($resources)
 
+  if $downloadurl { validate_string($downloadurl) }
   if $backend { validate_re($backend, ['^etcd$', '^consul$', '^zookeeper$', '^dynamodb$', '^redis$', '^env$']) }
   if $interval { validate_re($interval, '^\d+') }
   if $confdnoop { validate_bool($confdnoop) }
