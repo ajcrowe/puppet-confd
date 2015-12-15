@@ -1,0 +1,18 @@
+# Confd Agent (Upstart unit)
+description "Confd Agent"
+start on (local-filesystems and net-device-up IFACE!=lo)
+stop on runlevel [06]
+
+env CONFD=/usr/local/bin/confd
+
+script
+    # read settings like GOMAXPROCS from "/etc/default/confd", if available.
+    [ -e /etc/default/confd ] && . /etc/default/confd
+
+    export GOMAXPROCS=${GOMAXPROCS:-2}
+    exec $CONFD
+end script
+
+respawn
+respawn limit 10 10
+kill timeout 10
