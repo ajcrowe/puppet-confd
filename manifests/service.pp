@@ -1,3 +1,4 @@
+# Internal class to start up systemd
 class confd::service {
   service { 'confd':
     ensure    => $::confd::ensure,
