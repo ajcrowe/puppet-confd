@@ -25,6 +25,10 @@ class confd(
   $watch         = undef,
   $resources     = {},
 
+  $enable = $::confd::params::enable,
+  $init_template = $::confd::params::init_template,
+  $init_location = $::confd::params::init_location,
+
 ) inherits confd::params {
 
   # validate parameters here
@@ -75,6 +79,7 @@ class confd(
   create_resources('confd::resource', $resources)
 
   class { 'confd::install': } ->
-  class { 'confd::config': } ->
+  class { 'confd::config': } ~>
+  class { 'confd::service': } ->
   Confd::Resource <||>
 }
