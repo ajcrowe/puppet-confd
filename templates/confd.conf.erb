@@ -3,7 +3,7 @@ description "Confd Agent"
 start on (local-filesystems and net-device-up IFACE!=lo)
 stop on runlevel [06]
 
-env CONFD=/usr/local/bin/confd
+env CONFD=<%= scope.lookup('::confd::installdir') %>confd
 
 script
     # read settings like GOMAXPROCS from "/etc/default/confd", if available.
