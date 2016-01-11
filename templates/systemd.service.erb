@@ -3,7 +3,7 @@ Description=ConfD Service
 After=network.target
 
 [Service]
-ExecStart=<%= scope.lookupvar('::confd::installdir') %>confd
+ExecStart=<%= scope.lookupvar('::confd::installdir') %>/confd
 ExecStop=/bin/kill -s TERM $MAINPID
 
 [Install]
