@@ -6,26 +6,32 @@ describe 'confd class' do
     # Using puppet_apply as a helper
     it 'should work with no errors' do
       pp = <<-EOS
+      include ::etcd
       class { 'confd': }
       EOS
       # Run it twice and test for idempotency
       expect(apply_manifest(pp).exit_code).to_not eq(1)
       expect(apply_manifest(pp).exit_code).to eq(0)
     end
+
+    describe service('confd') do
+      it { should be_enabled }
+      it { should be_running }
+    end
+
   end
 
   context 'specified etcd parameters' do
     it 'should work with no errors' do
       pp = <<-EOS
+      include '::etcd'
       class { 'confd':
         backend     => 'etcd',
         debug       => true,
-        etcd_nodes  => [ 'http://localhost:4001' ],
-        etcd_scheme => 'http',
+        nodes  => [ 'http://localhost:4001' ],
+        scheme => 'http',
         interval    => 10,
         prefix      => '/test',
-        quiet       => false,
-        verbose     => true
       }
       EOS
       # Run it twice and test for idempotency
@@ -37,14 +43,12 @@ describe 'confd class' do
   context 'specified consul parameters' do
     it 'should work with no errors' do
       pp = <<-EOS
+      include consul
       class { 'confd':
         backend     => 'consul',
-        consul      => true,
-        consul_addr => '127.0.0.1:8500',
+        nodes       => ['127.0.0.1:8500'],
         debug       => true,
         interval    => 10,
-        quiet       => false,
-        verbose     => true
       }
       EOS
       # Run it twice and test for idempotency
@@ -77,4 +81,3 @@ describe 'confd resource define' do
     end
   end
 end
-
