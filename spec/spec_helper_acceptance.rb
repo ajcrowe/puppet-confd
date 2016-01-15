@@ -20,6 +20,9 @@ RSpec.configure do |c|
     puppet_module_install(:source => proj_root, :module_name => 'confd')
     hosts.each do |host|
       on host, puppet('module', 'install', 'puppetlabs-stdlib'), { :acceptable_exit_codes => [0,1] }
+      on host, puppet('module', 'install', 'cristifalcas-etcd'), { :acceptable_exit_codes => [0,1] }
+      on host, puppet('module', 'install', 'KyleAnderson-consul'), { :acceptable_exit_codes => [0,1] }
+      on host, puppet('module', 'install', 'stahnma-epel'), {:acceptable_exit_codes => [0,1]}
       on host, 'git clone git://github.com/ajcrowe/puppet-confd_site.git /etc/puppet/modules/site_confd'
     end
   end

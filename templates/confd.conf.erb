@@ -1,0 +1,16 @@
+# /etc/init/confd.conf
+author "Colin Wood <cwood06@gmail.com>"
+description "Confd Agent"
+
+start on (local-filesystems)
+stop on shutdown
+
+respawn
+respawn limit 10 10
+kill timeout 10
+
+script
+    # read settings like GOMAXPROCS from "/etc/default/confd", if available.
+    [ -e /etc/default/confd ] && . /etc/default/confd
+    exec <%= scope.lookupvar('::confd::installdir') %>/confd
+end script
