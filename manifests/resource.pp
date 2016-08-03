@@ -28,7 +28,7 @@ define confd::resource(
   if $reload_cmd { validate_string($reload_cmd) }
   if $check_cmd { validate_string($check_cmd) }
   if $prefix { validate_string($prefix) }
-  if $mode { validate_re($mode, '^\d+')}
+  if $mode { validate_re("$mode", '^\d+')}
 
   $resourcefile = "${confd::confdir}/conf.d/${name}.toml"
 

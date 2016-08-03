@@ -35,7 +35,7 @@ class confd(
   validate_hash($resources)
 
   if $backend { validate_re($backend, ['^etcd$', '^consul$', '^zookeeper$', '^dynamodb$', '^redis$', '^env$']) }
-  if $interval { validate_re($interval, '^\d+') }
+  if $interval { validate_re("$interval", '^\d+') }
   if $confdnoop { validate_bool($confdnoop) }
   if $log_level { validate_re($log_level, ['^debug$', '^info$', '^warn(ing)?$', '^error$', '^fatal$', '^panic$']) }
   if $nodes { validate_array($nodes) }
