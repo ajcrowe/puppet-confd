@@ -4,11 +4,12 @@
 # It sets variables according to platform
 #
 class confd::params {
-  $confdir    = '/etc/confd'
-  $version    = 'latest'
-  $user       = 'root'
-  $sitemodule = 'site_confd'
-  $nodes      = ['127.0.0.1:4001']
+  $confdir      = '/etc/confd'
+  $version      = 'latest'
+  $user         = 'root'
+  $sitemodule   = 'site_confd'
+  $nodes        = ['127.0.0.1:4001']
+  $install_type = 'src'
 
   case $::osfamily {
     'Debian': {

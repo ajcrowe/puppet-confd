@@ -6,3 +6,5 @@ spec/fixtures
 .ruby-gemset
 .vagrant
 Gemfile.lock
+.bundle/
+.project

@@ -31,11 +31,16 @@ define confd::resource(
   if $mode { validate_re($mode, '^\d+')}
 
   $resourcefile = "${confd::confdir}/conf.d/${name}.toml"
+  $notify = $confd::install_type ? {
+    'pkg'   => Service['confd'],
+    default => undef,
+  }
 
   file { $resourcefile:
     ensure  => $ensure,
     owner   => 'root',
     mode    => '0640',
     content => template('confd/resource.toml.erb'),
+    notify  => $notify,
   }
 }
