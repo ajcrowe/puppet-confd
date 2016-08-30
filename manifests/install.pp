@@ -7,12 +7,7 @@ class confd::install {
     'pkg': {
       package { 'confd':
         ensure => $confd::version,
-      } ~>
-      service { 'confd':
-        ensure     => 'running',
-        enable     => true,
-        hasstatus  => true,
-        hasrestart => true,
+        notify => Class['confd::service'],
       }
     }
     default: {

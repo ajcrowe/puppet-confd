@@ -78,5 +78,6 @@ class confd(
 
   class { 'confd::install': } ->
   class { 'confd::config': } ->
-  Confd::Resource <||>
+  Confd::Resource <||> ~>
+  class { 'confd::service': }
 }
