@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
 group :test do
-  gem 'rake'
+  gem 'rake', '10.5.0'
+  gem 'json', '1.8.3'
+  gem 'json_pure', '1.8.3'
   gem 'puppet-lint'
   gem 'puppet-syntax'
   gem 'puppetlabs_spec_helper', '1.0.1'
