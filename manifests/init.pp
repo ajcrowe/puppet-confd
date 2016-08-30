@@ -77,7 +77,9 @@ class confd(
   create_resources('confd::resource', $resources)
 
   class { 'confd::install': } ->
-  class { 'confd::config': } ->
+  class { 'confd::config':
+    notify => Class['confd::service'],
+  } ->
   Confd::Resource <||> ~>
   class { 'confd::service': }
 }
